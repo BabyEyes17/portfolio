@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jayden Lewis – Gallery</title>
 
+    <link rel="icon" type="image/jpeg" href="assets/img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,40 +16,81 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
+<!-- Copy Email-->
+<script>
+    function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.classList.add("show");
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 2000);
+    }
+
+    function copyEmail() {
+        navigator.clipboard
+            .writeText("jaydentlewis@gmail.com")
+            .then(() => showToast("✔ Email copied!"))
+            .catch(err => console.error("Copy failed:", err));
+    }
+</script>
+
 <body>
 <main>
+
+    <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-inner">
+
             <figure class="avatar-box">
-                <img src="assets/images/profile.jpg" alt="Jayden Lewis" />
+                <img src="assets/img/profile.jpg" alt="Jayden Lewis" />
             </figure>
+
             <div class="sidebar-info">
                 <h1 class="name">Jayden Lewis</h1>
                 <p class="role">Software Developer</p>
             </div>
+
             <div class="sidebar-contact">
                 <div class="contact-row">
-                    <div class="icon-circle">✉</div>
+
+                    <div class="icon-circle"><img src="assets/img/envelope-regular-full.svg" alt="Email" /></div>
+
                     <div>
                         <p class="contact-label">Email</p>
-                        <a href="mailto:your.email@example.com" class="contact-value">
-                            your.email@example.com
+                        <a href="mailto:jaydentlewis@gmail.com" class="contact-value">
+                            jaydentlewis@gmail.com
                         </a>
                     </div>
+
                 </div>
+
                 <div class="contact-row">
-                    <div class="icon-circle">📍</div>
+
+                    <div class="icon-circle"><img src="assets/img/location-dot-solid-full.svg" alt="Location" /></div>
                     <div>
                         <p class="contact-label">Location</p>
                         <p class="contact-value">Toronto, Canada</p>
                     </div>
+
                 </div>
             </div>
 
             <div class="sidebar-socials">
-                <a href="#" target="_blank" class="social-link">in</a>
-                <a href="#" target="_blank" class="social-link">gh</a>
-                <a href="#" target="_blank" class="social-link">ig</a>
+
+                <a href="https://www.linkedin.com/in/jaydenlewis25" target="_blank" aria-label="LinkedIn" class="social-link">
+                    <img src="assets/img/linkedin-in-brands-solid-full.svg" alt="LinkedIn" />
+                </a>
+
+                <a href="https://github.com/BabyEyes17" target="_blank" aria-label="GitHub" class="social-link">
+                    <img src="assets/img/github-brands-solid-full.svg" alt="LinkedIn" />
+                </a>
+
+                <a href="https://www.youtube.com/@babyeyes1952/videos" target="_blank" aria-label="Youtube" class="social-link">
+                    <img src="assets/img/youtube-brands-solid-full.svg" alt="LinkedIn" />
+                </a>
+
             </div>
         </div>
     </aside>
@@ -58,7 +100,7 @@
             <ul>
                 <li><a href="index.html" class="nav-link">About</a></li>
                 <li><a href="resume.html" class="nav-link">Resume</a></li>
-                <li><a href="projects.html" class="nav-link">Portfolio</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
                 <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
             </ul>
@@ -70,25 +112,59 @@
             </header>
 
             <section class="gallery-grid">
-                <!-- Replace these with your real images -->
-                <div class="gallery-item hover-glow">
-                    <div class="gallery-thumb"></div>
-                    <p class="gallery-caption">Screenshot 1</p>
+
+                <div class="gallery-item hover-glow" onclick="openImage('assets/img/react_app_employee_manager.png')">
+                    <div class="gallery-thumb" style="background-image: url('assets/img/react_app_employee_manager.png');"></div>
+                    <p class="gallery-caption">Employee Manager — React + JSX</p>
                 </div>
-                <div class="gallery-item hover-glow">
-                    <div class="gallery-thumb"></div>
-                    <p class="gallery-caption">Screenshot 2</p>
+
+                <div class="gallery-item hover-glow" onclick="openImage('assets/img/react_app_person_api.png')">
+                    <div class="gallery-thumb" style="background-image: url('assets/img/react_app_person_api.png');"></div>
+                    <p class="gallery-caption">Random User Generator — React + Fetch API</p>
                 </div>
-                <div class="gallery-item hover-glow">
-                    <div class="gallery-thumb"></div>
-                    <p class="gallery-caption">Screenshot 3</p>
-                </div>
-                <div class="gallery-item hover-glow">
-                    <div class="gallery-thumb"></div>
-                    <p class="gallery-caption">Screenshot 4</p>
-                </div>
+
             </section>
+
+            <h3 class="section-heading" style="margin-top: 30px;">Video Highlights</h3>
+            <section class="video-grid lightbox-videos">
+
+                <div class="video-card" onclick="openVideo('DLtJW-_VLyc')">
+                    <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/DLtJW-_VLyc/hqdefault.jpg');"></div>
+                    <p class="video-caption">Project Management Web App</p>
+                </div>
+
+                <div class="video-card" onclick="openVideo('B_PKsQdnmiM')">
+                    <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/B_PKsQdnmiM/hqdefault.jpg');"></div>
+                    <p class="video-caption">Inventory Management Service</p>
+                </div>
+
+                <div class="video-card" onclick="openVideo('rba6IcvYrKw')">
+                    <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/rba6IcvYrKw/hqdefault.jpg');"></div>
+                    <p class="video-caption">Containerized Backend Microservices</p>
+                </div>
+
+            </section>
+
+            <!-- Lightbox -->
+            <div id="video-lightbox" class="video-lightbox" onclick="closeVideo()">
+                <iframe id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <!-- Popup modal for Video -->
+            <div id="videoModal" class="video-modal" onclick="closeVideo()">
+                <div class="video-modal-content">
+                    <iframe id="videoFrame" src="" loading="lazy" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Image Lightbox -->
+            <div id="img-lightbox" class="img-lightbox" onclick="closeImage()">
+                <img id="lightbox-img" src="" alt="Preview">
+            </div>
+
         </article>
+
+
 
         <footer class="footer">
             <p>&copy; <span id="year"></span> Jayden Lewis · All rights reserved.</p>
@@ -98,6 +174,39 @@
 
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    function openVideo(id) {
+        const modal = document.getElementById("videoModal");
+        const frame = document.getElementById("videoFrame");
+
+        frame.src = `https://www.youtube.com/embed/${id}`;
+        modal.style.display = "flex";
+    }
+
+    function closeVideo() {
+        const modal = document.getElementById("videoModal");
+        const frame = document.getElementById("videoFrame");
+
+        frame.src = "";
+        modal.style.display = "none";
+    }
+
+    function openImage(src) {
+        const lb = document.getElementById("img-lightbox");
+        const img = document.getElementById("lightbox-img");
+        img.src = src;
+        lb.style.display = "flex";
+    }
+
+    function closeImage() {
+        const lb = document.getElementById("img-lightbox");
+        lb.style.display = "none";
+        document.getElementById("lightbox-img").src = "";
+    }
+
 </script>
+
+<div id="toast"></div>
+
 </body>
 </html>

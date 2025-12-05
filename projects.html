@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jayden Lewis – Projects</title>
 
+    <link rel="icon" type="image/jpeg" href="assets/img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,40 +16,81 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
+<!-- Copy Email-->
+<script>
+    function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.classList.add("show");
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 2000);
+    }
+
+    function copyEmail() {
+        navigator.clipboard
+            .writeText("jaydentlewis@gmail.com")
+            .then(() => showToast("✔ Email copied!"))
+            .catch(err => console.error("Copy failed:", err));
+    }
+</script>
+
 <body>
 <main>
+
+    <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-inner">
+
             <figure class="avatar-box">
-                <img src="assets/images/profile.jpg" alt="Jayden Lewis" />
+                <img src="assets/img/profile.jpg" alt="Jayden Lewis" />
             </figure>
+
             <div class="sidebar-info">
                 <h1 class="name">Jayden Lewis</h1>
                 <p class="role">Software Developer</p>
             </div>
+
             <div class="sidebar-contact">
                 <div class="contact-row">
-                    <div class="icon-circle">✉</div>
+
+                    <div class="icon-circle"><img src="assets/img/envelope-regular-full.svg" alt="Email" /></div>
+
                     <div>
                         <p class="contact-label">Email</p>
-                        <a href="mailto:your.email@example.com" class="contact-value">
-                            your.email@example.com
+                        <a href="mailto:jaydentlewis@gmail.com" class="contact-value">
+                            jaydentlewis@gmail.com
                         </a>
                     </div>
+
                 </div>
+
                 <div class="contact-row">
-                    <div class="icon-circle">📍</div>
+
+                    <div class="icon-circle"><img src="assets/img/location-dot-solid-full.svg" alt="Location" /></div>
                     <div>
                         <p class="contact-label">Location</p>
                         <p class="contact-value">Toronto, Canada</p>
                     </div>
+
                 </div>
             </div>
 
             <div class="sidebar-socials">
-                <a href="#" target="_blank" class="social-link">in</a>
-                <a href="#" target="_blank" class="social-link">gh</a>
-                <a href="#" target="_blank" class="social-link">ig</a>
+
+                <a href="https://www.linkedin.com/in/jaydenlewis25" target="_blank" aria-label="LinkedIn" class="social-link">
+                    <img src="assets/img/linkedin-in-brands-solid-full.svg" alt="LinkedIn" />
+                </a>
+
+                <a href="https://github.com/BabyEyes17" target="_blank" aria-label="GitHub" class="social-link">
+                    <img src="assets/img/github-brands-solid-full.svg" alt="LinkedIn" />
+                </a>
+
+                <a href="https://www.youtube.com/@babyeyes1952/videos" target="_blank" aria-label="Youtube" class="social-link">
+                    <img src="assets/img/youtube-brands-solid-full.svg" alt="LinkedIn" />
+                </a>
+
             </div>
         </div>
     </aside>
@@ -58,7 +100,7 @@
             <ul>
                 <li><a href="index.html" class="nav-link">About</a></li>
                 <li><a href="resume.html" class="nav-link">Resume</a></li>
-                <li><a href="projects.html" class="nav-link active">Portfolio</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
                 <li><a href="gallery.html" class="nav-link">Gallery</a></li>
             </ul>
@@ -78,7 +120,7 @@
                         Web app to manage products, categories, orders, and users with authentication and role-based access.
                     </p>
                     <div class="card-footer">
-                        <a href="#" target="_blank" class="btn-link">View Code</a>
+                        <a href="https://github.com/BabyEyes17/COMP-2139/tree/main/assignment-1/inventory_management_system" target="_blank" class="btn-link">View Code</a>
                     </div>
                 </article>
 
@@ -90,19 +132,19 @@
                         Treasure-hunt app with QR scanning, POIs, and routes for field games and events.
                     </p>
                     <div class="card-footer">
-                        <a href="#" target="_blank" class="btn-link">View Project</a>
+                        <a href="https://github.com/BabyEyes17/Treasurely" target="_blank" class="btn-link">View Code</a>
                     </div>
                 </article>
 
                 <!-- Card 3 -->
                 <article class="card hover-glow">
                     <h3 class="card-title">SipSip Plant Care</h3>
-                    <p class="card-subtitle">Flutter / React Native</p>
+                    <p class="card-subtitle">Figma Mockup</p>
                     <p class="card-body">
                         A plant care tracker that reminds households when to water and care for shared plants.
                     </p>
                     <div class="card-footer">
-                        <a href="#" target="_blank" class="btn-link">View Prototype</a>
+                        <a href="https://www.figma.com/proto/8MzKXhkVAriP0wv8Dnufkf/SipSip-Mockup?node-id=0-1&t=mWbe9mXuchdylO8m-1" target="_blank" class="btn-link">View Prototype</a>
                     </div>
                 </article>
             </section>
@@ -117,5 +159,8 @@
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+
+<div id="toast"></div>
+
 </body>
 </html>

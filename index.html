@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jayden Lewis – About</title>
 
-    <!-- Fonts -->
+    <link rel="icon" type="image/jpeg" href="assets/img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -16,6 +16,26 @@
     <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
+<!-- Copy Email-->
+<script>
+    function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.classList.add("show");
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 2000);
+    }
+
+    function copyEmail() {
+        navigator.clipboard
+            .writeText("jaydentlewis@gmail.com")
+            .then(() => showToast("✔ Email copied!"))
+            .catch(err => console.error("Copy failed:", err));
+    }
+</script>
+
 <body>
 <main>
 
@@ -24,7 +44,7 @@
         <div class="sidebar-inner">
 
             <figure class="avatar-box">
-                <img src="assets/img/profile4.jpg" alt="Jayden Lewis" />
+                <img src="assets/img/profile.jpg" alt="Jayden Lewis" />
             </figure>
 
             <div class="sidebar-info">
@@ -33,22 +53,27 @@
             </div>
 
             <div class="sidebar-contact">
-                <div class="contact-row">
+                <div class="contact-row" onclick="copyEmail()">
+
                     <div class="icon-circle"><img src="assets/img/envelope-regular-full.svg" alt="Email" /></div>
+
                     <div>
                         <p class="contact-label">Email</p>
                         <a href="mailto:jaydentlewis@gmail.com" class="contact-value">
                             jaydentlewis@gmail.com
                         </a>
                     </div>
+
                 </div>
 
                 <div class="contact-row">
+
                     <div class="icon-circle"><img src="assets/img/location-dot-solid-full.svg" alt="Location" /></div>
                     <div>
                         <p class="contact-label">Location</p>
                         <p class="contact-value">Toronto, Canada</p>
                     </div>
+
                 </div>
             </div>
 
@@ -78,7 +103,7 @@
             <ul>
                 <li><a href="index.html" class="nav-link active">About</a></li>
                 <li><a href="resume.html" class="nav-link">Resume</a></li>
-                <li><a href="projects.html" class="nav-link">Portfolio</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
                 <li><a href="gallery.html" class="nav-link">Gallery</a></li>
             </ul>
@@ -122,50 +147,55 @@
                         <p class="highlight-label">PERSONAL PROJECTS</p>
                     </li>
                     <li class="highlight-card">
-                        <h4 class="highlight-number">+3</h4>
+                        <h4 class="highlight-number">+6</h4>
                         <p class="highlight-label">TECH STACKS USED</p>
                     </li>
                 </ul>
             </section>
 
-            <!-- Featured -->
-            <section class="showcase">
-                <div class="showcase-header">
-                    <h3 class="section-heading">
-                        <span class="icon-folder"><img src="assets/img/folder-solid-full.svg" alt="Folder" /></span>
-                        Featured Portfolios
-                    </h3>
-                    <p class="muted">A glimpse into what I’ve been building.</p>
+            <section class="about-growth">
+
+                <h3 class="section-heading">Growth & Goals</h3>
+
+                <div class="growth-block">
+                    <h4>What I'm Working On</h4>
+                    <ul>
+                        <li>Building a full-stack microservice architecture using <strong>Spring Boot</strong>, <strong>React</strong>, and <strong>PostgreSQL</strong>.</li>
+                        <li>Designing scalable backend modules with clean controller–service–repository structures.</li>
+                        <li>Expanding my personal portfolio with real-world inspired applications.</li>
+                    </ul>
                 </div>
 
-                <ul class="showcase-grid">
-                    <li class="showcase-item">
-                        <a href="#" target="_blank">
-                            <div class="showcase-thumb"></div>
-                            <div class="showcase-body">
-                                <span class="showcase-link">Project One</span>
-                                <h4 class="showcase-title">Inventory Management System</h4>
-                                <p class="showcase-text">
-                                    A full-stack app for managing products, orders, and customers with a clean dashboard UI.
-                                </p>
-                            </div>
-                        </a>
-                    </li>
+                <div class="growth-block">
+                    <h4>What I'm Learning</h4>
+                    <ul>
+                        <li>Advanced debugging and performance optimization in <strong>Java</strong>, <strong>C#</strong>, and <strong>Python</strong>.</li>
+                        <li>Deployment workflows using <strong>Docker</strong>, <strong>GitHub Actions</strong>, and cloud environments.</li>
+                        <li>Competitive programming skills from <strong>IEEE Xtreme</strong> (data structures, graphs, DP, search algorithms).</li>
+                    </ul>
+                </div>
 
-                    <li class="showcase-item">
-                        <a href="#" target="_blank">
-                            <div class="showcase-thumb"></div>
-                            <div class="showcase-body">
-                                <span class="showcase-link">Project Two</span>
-                                <h4 class="showcase-title">Treasurely Mobile App</h4>
-                                <p class="showcase-text">
-                                    A treasure-hunt style mobile app with QR clues, routes, and a smooth Android experience.
-                                </p>
-                            </div>
+                <div class="growth-block testimonial">
+                    <h4>Professor Referral</h4>
+
+                    <p class="testimonial-text">
+                        My professor, <strong>Andrew Rudder</strong>, has consistently recognized my strong work ethic,
+                        attention to detail, and ability to break down complex problems. He has highlighted my focus,
+                        technical discipline, and persistence when troubleshooting complex issues in our coursework.
+                    </p>
+
+                    <p class="testimonial-author">
+                        — <strong>Andrew Rudder</strong>, Professor, George Brown College
+                        <br>
+                        <a href="https://www.linkedin.com/in/andrew-rudder-b68a2673/" target="_blank" class="testimonial-link">
+                            View LinkedIn Profile
                         </a>
-                    </li>
-                </ul>
+                    </p>
+                </div>
+
             </section>
+
+
         </article>
 
         <footer class="footer">
@@ -177,5 +207,8 @@
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+
+<div id="toast"></div>
+
 </body>
 </html>
