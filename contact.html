@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jayden Lewis – Contact</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Courgette&family=Poppins:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+<main>
+    <aside class="sidebar">
+        <div class="sidebar-inner">
+            <figure class="avatar-box">
+                <img src="assets/images/profile.jpg" alt="Jayden Lewis" />
+            </figure>
+            <div class="sidebar-info">
+                <h1 class="name">Jayden Lewis</h1>
+                <p class="role">Software Developer</p>
+            </div>
+            <div class="sidebar-contact">
+                <div class="contact-row">
+                    <div class="icon-circle">✉</div>
+                    <div>
+                        <p class="contact-label">Email</p>
+                        <a href="mailto:your.email@example.com" class="contact-value">
+                            your.email@example.com
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <div class="icon-circle">📍</div>
+                    <div>
+                        <p class="contact-label">Location</p>
+                        <p class="contact-value">Toronto, Canada</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-socials">
+                <a href="#" target="_blank" class="social-link">in</a>
+                <a href="#" target="_blank" class="social-link">gh</a>
+                <a href="#" target="_blank" class="social-link">ig</a>
+            </div>
+        </div>
+    </aside>
+
+    <div class="main">
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html" class="nav-link">About</a></li>
+                <li><a href="resume.html" class="nav-link">Resume</a></li>
+                <li><a href="projects.html" class="nav-link">Portfolio</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            </ul>
+        </nav>
+
+        <article class="page fade-in">
+            <header>
+                <h2 class="page-title">Let’s Connect</h2>
+            </header>
+
+            <section class="contact-layout">
+                <div class="contact-info-block">
+                    <h3 class="section-heading">Contact Details</h3>
+                    <ul class="contact-info-list">
+                        <li>
+                            <span class="contact-icon">📱</span>
+                            <div>
+                                <p class="contact-label">Mobile</p>
+                                <p class="contact-value">+1 (000) 000-0000</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="contact-icon">✉</span>
+                            <div>
+                                <p class="contact-label">Email</p>
+                                <a href="mailto:your.email@example.com" class="contact-value">
+                                    your.email@example.com
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contact-form-block">
+                    <h3 class="section-heading">Contact Form</h3>
+                    <!-- this is static – hook it to backend/form service later -->
+                    <form class="form">
+                        <div class="input-row">
+                            <input type="text" name="name" placeholder="Full Name" class="form-input" required />
+                            <input type="email" name="email" placeholder="Email Address" class="form-input" required />
+                        </div>
+                        <textarea name="message" placeholder="Your Message" class="form-input" rows="5" required></textarea>
+
+                        <button type="submit" class="btn-primary">
+                            <span>Send Message</span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+        </article>
+
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Jayden Lewis · All rights reserved.</p>
+        </footer>
+    </div>
+</main>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

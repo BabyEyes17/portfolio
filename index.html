@@ -1,10 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jayden Lewis – About</title>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Courgette&family=Poppins:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+<main>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-inner">
+
+            <figure class="avatar-box">
+                <img src="assets/img/profile4.jpg" alt="Jayden Lewis" />
+            </figure>
+
+            <div class="sidebar-info">
+                <h1 class="name">Jayden Lewis</h1>
+                <p class="role">Software Developer</p>
+            </div>
+
+            <div class="sidebar-contact">
+                <div class="contact-row">
+                    <div class="icon-circle"><img src="assets/img/envelope-regular-full.svg" alt="Email" /></div>
+                    <div>
+                        <p class="contact-label">Email</p>
+                        <a href="mailto:jaydentlewis@gmail.com" class="contact-value">
+                            jaydentlewis@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-row">
+                    <div class="icon-circle"><img src="assets/img/location-dot-solid-full.svg" alt="Location" /></div>
+                    <div>
+                        <p class="contact-label">Location</p>
+                        <p class="contact-value">Toronto, Canada</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-socials">
+
+                <a href="https://www.linkedin.com/in/jaydenlewis25" target="_blank" aria-label="LinkedIn" class="social-link">
+                    <img src="assets/img/linkedin-in-brands-solid-full.svg" alt="LinkedIn" />
+                </a>
+
+                <a href="https://github.com/BabyEyes17" target="_blank" aria-label="GitHub" class="social-link">
+                    <img src="assets/img/github-brands-solid-full.svg" alt="LinkedIn" />
+                </a>
+
+                <a href="https://www.youtube.com/@babyeyes1952/videos" target="_blank" aria-label="Youtube" class="social-link">
+                    <img src="assets/img/youtube-brands-solid-full.svg" alt="LinkedIn" />
+                </a>
+
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main">
+
+        <!-- Navbar -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html" class="nav-link active">About</a></li>
+                <li><a href="resume.html" class="nav-link">Resume</a></li>
+                <li><a href="projects.html" class="nav-link">Portfolio</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            </ul>
+        </nav>
+
+        <!-- About -->
+        <article class="page fade-in">
+            <header>
+                <h2 class="page-title">Digital Identity</h2>
+            </header>
+
+            <section class="about-text">
+                <p>
+                    I’m <strong>Jayden Lewis</strong>, a software developer based in Toronto, Canada.
+                    I enjoy building full-stack applications, designing clean user experiences,
+                    and solving practical problems with code.
+                </p>
+
+                <p>
+                    I’m especially interested in web development, databases, and building
+                    projects that feel smooth and polished from backend to UI.
+                    I like learning by doing – shipping small projects, breaking things,
+                    and improving them over time.
+                </p>
+            </section>
+
+            <!-- Highlights -->
+            <section class="highlights">
+                <h3 class="section-heading">
+                    <span class="icon-star"><img src="assets/img/star-solid-full.svg" alt="Star" /></span>
+                    Highlights &amp; Successes
+                </h3>
+
+                <ul class="highlight-list">
+                    <li class="highlight-card">
+                        <h4 class="highlight-number">+2</h4>
+                        <p class="highlight-label">YEARS OF EXPERIENCE</p>
+                    </li>
+                    <li class="highlight-card">
+                        <h4 class="highlight-number">+10</h4>
+                        <p class="highlight-label">PERSONAL PROJECTS</p>
+                    </li>
+                    <li class="highlight-card">
+                        <h4 class="highlight-number">+3</h4>
+                        <p class="highlight-label">TECH STACKS USED</p>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Featured -->
+            <section class="showcase">
+                <div class="showcase-header">
+                    <h3 class="section-heading">
+                        <span class="icon-folder"><img src="assets/img/folder-solid-full.svg" alt="Folder" /></span>
+                        Featured Portfolios
+                    </h3>
+                    <p class="muted">A glimpse into what I’ve been building.</p>
+                </div>
+
+                <ul class="showcase-grid">
+                    <li class="showcase-item">
+                        <a href="#" target="_blank">
+                            <div class="showcase-thumb"></div>
+                            <div class="showcase-body">
+                                <span class="showcase-link">Project One</span>
+                                <h4 class="showcase-title">Inventory Management System</h4>
+                                <p class="showcase-text">
+                                    A full-stack app for managing products, orders, and customers with a clean dashboard UI.
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="showcase-item">
+                        <a href="#" target="_blank">
+                            <div class="showcase-thumb"></div>
+                            <div class="showcase-body">
+                                <span class="showcase-link">Project Two</span>
+                                <h4 class="showcase-title">Treasurely Mobile App</h4>
+                                <p class="showcase-text">
+                                    A treasure-hunt style mobile app with QR clues, routes, and a smooth Android experience.
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </article>
+
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Jayden Lewis · All rights reserved.</p>
+        </footer>
+    </div>
+</main>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>

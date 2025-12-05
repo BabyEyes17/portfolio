@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jayden Lewis – Resume</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Courgette&family=Poppins:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body>
+<main>
+    <!-- same sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-inner">
+            <figure class="avatar-box">
+                <img src="assets/images/profile.jpg" alt="Jayden Lewis" />
+            </figure>
+            <div class="sidebar-info">
+                <h1 class="name">Jayden Lewis</h1>
+                <p class="role">Software Developer</p>
+            </div>
+
+            <div class="sidebar-contact">
+                <div class="contact-row">
+                    <div class="icon-circle">✉</div>
+                    <div>
+                        <p class="contact-label">Email</p>
+                        <a href="mailto:your.email@example.com" class="contact-value">
+                            your.email@example.com
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <div class="icon-circle">📍</div>
+                    <div>
+                        <p class="contact-label">Location</p>
+                        <p class="contact-value">Toronto, Canada</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-socials">
+                <a href="#" target="_blank" class="social-link">in</a>
+                <a href="#" target="_blank" class="social-link">gh</a>
+                <a href="#" target="_blank" class="social-link">ig</a>
+            </div>
+        </div>
+    </aside>
+
+    <div class="main">
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html" class="nav-link">About</a></li>
+                <li><a href="resume.html" class="nav-link active">Resume</a></li>
+                <li><a href="projects.html" class="nav-link">Portfolio</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            </ul>
+        </nav>
+
+        <article class="page fade-in">
+            <header>
+                <h2 class="page-title">Career Snapshot</h2>
+            </header>
+
+            <!-- Experience -->
+            <section class="timeline">
+                <div class="timeline-header">
+                    <h3 class="section-heading">Experience</h3>
+                </div>
+
+                <ol class="timeline-list">
+                    <li class="timeline-item">
+                        <h4 class="timeline-title">Software Developer – Your Company</h4>
+                        <span class="timeline-date">2024 – Present</span>
+                        <p class="timeline-text">
+                            Short description of your current role, tech stack, and what you own.
+                        </p>
+                    </li>
+
+                    <li class="timeline-item">
+                        <h4 class="timeline-title">Student Projects & Freelance</h4>
+                        <span class="timeline-date">2022 – 2024</span>
+                        <p class="timeline-text">
+                            Built full-stack apps, APIs, and mobile projects as part of coursework and personal learning.
+                        </p>
+                    </li>
+                </ol>
+            </section>
+
+            <!-- Education -->
+            <section class="timeline">
+                <div class="timeline-header">
+                    <h3 class="section-heading">Education</h3>
+                </div>
+
+                <ol class="timeline-list">
+                    <li class="timeline-item">
+                        <h4 class="timeline-title">Computer Science – George Brown College</h4>
+                        <span class="timeline-date">Year – Year</span>
+                        <p class="timeline-text">
+                            Relevant courses: data structures, databases, web development, software engineering, etc.
+                        </p>
+                    </li>
+                </ol>
+            </section>
+
+            <!-- Skills -->
+            <section class="skills">
+                <h3 class="section-heading">Skills</h3>
+                <ul class="chip-list">
+                    <li class="chip">HTML</li>
+                    <li class="chip">CSS</li>
+                    <li class="chip">JavaScript</li>
+                    <li class="chip">React</li>
+                    <li class="chip">Java</li>
+                    <li class="chip">C# / .NET</li>
+                    <li class="chip">SQL</li>
+                    <li class="chip">MongoDB</li>
+                    <li class="chip">Git &amp; GitHub</li>
+                </ul>
+            </section>
+        </article>
+
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Jayden Lewis · All rights reserved.</p>
+        </footer>
+    </div>
+</main>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
