@@ -18,20 +18,33 @@
 
 <!-- Copy Email-->
 <script>
-    function showToast(message) {
+    function showToast(message, anchorEl) {
+
         const toast = document.getElementById("toast");
         toast.textContent = message;
-        toast.classList.add("show");
 
-        setTimeout(() => {
-            toast.classList.remove("show");
-        }, 2000);
+        if (anchorEl) {
+
+            const rect = anchorEl.getBoundingClientRect();
+
+            toast.style.top    = (rect.bottom + 10) + "px";
+            toast.style.left   = rect.left + "px";
+            toast.style.bottom = "auto";
+            toast.style.right  = "auto";
+        }
+
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2000);
     }
 
-    function copyEmail() {
+    function copyEmail(event) {
+
+        const anchor = event ? event.currentTarget : null;
+        const email = "jaydentlewis@gmail.com";
+
         navigator.clipboard
-            .writeText("jaydentlewis@gmail.com")
-            .then(() => showToast("✔ Email copied!"))
+            .writeText(email)
+            .then(() => showToast("✔ Email copied!", anchor))
             .catch(err => console.error("Copy failed:", err));
     }
 </script>
@@ -52,7 +65,7 @@
                 <p class="role">Software Developer</p>
             </div>
 
-            <div class="sidebar-contact">
+            <div class="sidebar-contact" onclick="copyEmail(event)">
                 <div class="contact-row">
 
                     <div class="icon-circle"><img src="assets/img/envelope-regular-full.svg" alt="Email" /></div>
@@ -112,7 +125,29 @@
             </header>
 
             <section class="cards-grid">
-                <!-- Card 1 -->
+
+                <article class="card hover-glow">
+                    <h3 class="card-title">Taskit - ToDo List Organizer</h3>
+                    <p class="card-subtitle">iOS 16.0+ · Core Data</p>
+                    <p class="card-body">
+                        iOS To-Do application designed to help students and working individuals efficiently and simply manage tasks across different categories.
+                    </p>
+                    <div class="card-footer">
+                        <a href="https://github.com/BabyEyes17/Taskit" target="_blank" class="btn-link">View Code</a>
+                    </div>
+                </article>
+
+                <article class="card hover-glow">
+                    <h3 class="card-title">Live Web Chat Application</h3>
+                    <p class="card-subtitle">Node.js · Express · Socket.IO · MongoDB</p>
+                    <p class="card-body">
+                        Real-time chat application where users can sign up, log in, join public chat rooms, and send private messages.
+                    </p>
+                    <div class="card-footer">
+                        <a href="https://github.com/BabyEyes17/101484621_lab_test1_chat_app" target="_blank" class="btn-link">View Code</a>
+                    </div>
+                </article>
+
                 <article class="card hover-glow">
                     <h3 class="card-title">Inventory Management System</h3>
                     <p class="card-subtitle">ASP.NET Core · Entity Framework · SQL</p>
@@ -124,7 +159,6 @@
                     </div>
                 </article>
 
-                <!-- Card 2 -->
                 <article class="card hover-glow">
                     <h3 class="card-title">Treasurely Android App</h3>
                     <p class="card-subtitle">Kotlin · Jetpack Compose · Room</p>
@@ -136,7 +170,6 @@
                     </div>
                 </article>
 
-                <!-- Card 3 -->
                 <article class="card hover-glow">
                     <h3 class="card-title">SipSip Plant Care</h3>
                     <p class="card-subtitle">Figma Mockup</p>
@@ -147,6 +180,7 @@
                         <a href="https://www.figma.com/proto/8MzKXhkVAriP0wv8Dnufkf/SipSip-Mockup?node-id=0-1&t=mWbe9mXuchdylO8m-1" target="_blank" class="btn-link">View Prototype</a>
                     </div>
                 </article>
+
             </section>
         </article>
 
