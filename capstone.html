@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jayden Lewis – Capstone</title>
+
+    <link rel="icon" type="image/jpeg" href="assets/img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Courgette&family=Poppins:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<script>
+    function showToast(message, anchorEl) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        if (anchorEl) {
+            const rect = anchorEl.getBoundingClientRect();
+            toast.style.top    = (rect.bottom + 10) + "px";
+            toast.style.left   = rect.left + "px";
+            toast.style.bottom = "auto";
+            toast.style.right  = "auto";
+        }
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2000);
+    }
+
+    function copyEmail(event) {
+        const anchor = event ? event.currentTarget : null;
+        navigator.clipboard
+            .writeText("jaydentlewis@gmail.com")
+            .then(() => showToast("✔ Email copied!", anchor))
+            .catch(err => console.error("Copy failed:", err));
+    }
+</script>
+
+<body>
+<main>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-inner">
+
+            <figure class="avatar-box">
+                <img src="assets/img/profile.jpg" alt="Jayden Lewis" />
+            </figure>
+
+            <div class="sidebar-info">
+                <h1 class="name">Jayden Lewis</h1>
+                <p class="role">Software Developer</p>
+            </div>
+
+            <div class="sidebar-contact" onclick="copyEmail(event)">
+                <div class="contact-row">
+                    <div class="icon-circle"><img src="assets/img/envelope-regular-full.svg" alt="Email" /></div>
+                    <div>
+                        <p class="contact-label">Email</p>
+                        <a href="mailto:jaydentlewis@gmail.com" class="contact-value">jaydentlewis@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <div class="icon-circle"><img src="assets/img/location-dot-solid-full.svg" alt="Location" /></div>
+                    <div>
+                        <p class="contact-label">Location</p>
+                        <p class="contact-value">Toronto, Canada</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-socials">
+                <a href="https://www.linkedin.com/in/jaydenlewis25" target="_blank" aria-label="LinkedIn" class="social-link">
+                    <img src="assets/img/linkedin-in-brands-solid-full.svg" alt="LinkedIn" />
+                </a>
+                <a href="https://github.com/BabyEyes17" target="_blank" aria-label="GitHub" class="social-link">
+                    <img src="assets/img/github-brands-solid-full.svg" alt="GitHub" />
+                </a>
+                <a href="https://www.youtube.com/@babyeyes1952/videos" target="_blank" aria-label="Youtube" class="social-link">
+                    <img src="assets/img/youtube-brands-solid-full.svg" alt="YouTube" />
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <div class="main">
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html" class="nav-link">About</a></li>
+                <li><a href="resume.html" class="nav-link">Resume</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="capstone.html" class="nav-link active">Capstone</a></li>
+            </ul>
+        </nav>
+
+        <article class="page fade-in">
+            <header class="capstone-header">
+                <div class="capstone-title-block">
+                    <p class="capstone-label">COMP 3059 — Capstone Project</p>
+                    <h2 class="page-title">SipSip</h2>
+                    <p class="capstone-subtitle">A plant care companion for busy people</p>
+                </div>
+                <div class="capstone-meta-chips">
+                    <span class="meta-chip">Kotlin</span>
+                    <span class="meta-chip">Jetpack Compose</span>
+                    <span class="meta-chip">Android SDK</span>
+                    <span class="meta-chip">MVVM</span>
+                    <span class="meta-chip">Room DB</span>
+                    <span class="meta-chip">Sep 2025 – Mar 2026</span>
+                </div>
+            </header>
+
+            <!-- Project Summary -->
+            <section class="capstone-section growth-block">
+                <h3 class="capstone-section-title">Project Summary</h3>
+                <div class="capstone-block">
+                    <p>
+                        SipSip is an Android mobile application designed to help users care for their plants
+                        in a fun, simple, and engaging way. The goal is to make plant care less of a chore
+                        and more of a daily habit — keeping the experience relaxed and approachable while
+                        providing real, personalized value.
+                    </p>
+                    <p>
+                        The app delivers personalized plant care tracking with minimal effort from the user,
+                        blends practical features with motivational elements like streaks and shared household
+                        updates, and maintains a playful, friendly design that doesn't overwhelm.
+                    </p>
+                    <div class="capstone-team">
+                        <span class="team-label">Team</span>
+                        <span class="team-member">Jayden Lewis — Project Manager</span>
+                        <span class="team-member">Aidan Repchik — Project Developer</span>
+                        <span class="team-member">Uzma Shaikh — Project Engineer</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project Vision -->
+            <section class="capstone-section growth-block">
+                <h3 class="capstone-section-title">Project Vision</h3>
+                <div class="capstone-block">
+                    <div class="vision-grid">
+                        <div class="vision-card">
+                            <h4>Problem</h4>
+                            <ul>
+                                <li>People forget to water plants or lose interest over time.</li>
+                                <li>Overwatering occurs frequently, especially around rainfall.</li>
+                                <li>Most users don't know specific plant care requirements, leading to unhealthy plants.</li>
+                            </ul>
+                        </div>
+                        <div class="vision-card">
+                            <h4>Opportunity</h4>
+                            <ul>
+                                <li>Personalized watering schedules based on plant type and local weather.</li>
+                                <li>Non-intrusive reminders to encourage consistency without annoyance.</li>
+                                <li>Offline-first with secure local data storage.</li>
+                                <li>Seamless household collaboration without requiring multiple accounts.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="position-statement">
+                        <p>
+                            <strong>For</strong> casual plant owners and busy individuals,
+                            <strong>SipSip</strong> is a mobile plant care app
+                            <strong>that</strong> provides personalized watering schedules, smart reminders,
+                            and household collaboration features —
+                            <strong>unlike</strong> generic reminder apps,
+                            SipSip is built specifically around plant care with an intuitive, playful experience.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Business & Project Requirements -->
+            <section class="capstone-section growth-block">
+                <h3 class="capstone-section-title">Business &amp; Project Requirements</h3>
+                <div class="capstone-block">
+                    <h4 class="sub-heading">Key Deliverables</h4>
+                    <ul class="req-list">
+                        <li>A minimum viable product Android application with core features functional.</li>
+                        <li>A simple, friendly UI/UX design aligned with Material Design 3 guidelines.</li>
+                        <li>A product backlog and plan for additional features to be developed post-MVP.</li>
+                    </ul>
+
+                    <h4 class="sub-heading">Core Features (High-Level Requirements)</h4>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <span class="feature-num">F1</span>
+                            <div>
+                                <strong>Plant Profile Management</strong>
+                                <p>Create, view, edit, and delete plant profiles including name, species, photo, location, and watering frequency.</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-num">F2</span>
+                            <div>
+                                <strong>Plant Identification</strong>
+                                <p>Camera-based plant identification using Google Vision API to auto-generate a care schedule from a photo.</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-num">F3</span>
+                            <div>
+                                <strong>Plant Care Reminders</strong>
+                                <p>Automated, non-intrusive push notifications for watering, feeding, and other care tasks on a user-set schedule.</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-num">F4</span>
+                            <div>
+                                <strong>Shared Household Care</strong>
+                                <p>Collaborate with household members to share plant oversight and task completion without multiple accounts.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project Plan -->
+            <section class="capstone-section growth-block">
+                <h3 class="capstone-section-title">Project Plan</h3>
+                <div class="capstone-block">
+                    <p>
+                        The project followed an agile methodology across a two-semester timeline
+                        (September 2025 – March 2026), using sprints with defined backlogs, a
+                        Responsibility Assignment Matrix, and regular status reporting.
+                    </p>
+                    <div class="milestones">
+                        <div class="milestone-item">
+                            <span class="milestone-dot"></span>
+                            <div>
+                                <strong>Sprint 1–2</strong>
+                                <p>Project documentation — vision, requirements, personas, user stories, team charter.</p>
+                            </div>
+                        </div>
+                        <div class="milestone-item">
+                            <span class="milestone-dot"></span>
+                            <div>
+                                <strong>Sprint 3–4</strong>
+                                <p>UI prototyping — Figma mockups, navigation flow design, base screen templates.</p>
+                            </div>
+                        </div>
+                        <div class="milestone-item">
+                            <span class="milestone-dot"></span>
+                            <div>
+                                <strong>Sprint 5–6</strong>
+                                <p>Core implementation — navigation scaffolding, dashboard, plant collections layout, notification UI.</p>
+                            </div>
+                        </div>
+                        <div class="milestone-item">
+                            <span class="milestone-dot"></span>
+                            <div>
+                                <strong>Sprint 7</strong>
+                                <p>UI polish — layout spacing, icon consistency, accessibility, collapsible rooms, contextual menus.</p>
+                            </div>
+                        </div>
+                        <div class="milestone-item">
+                            <span class="milestone-dot active"></span>
+                            <div>
+                                <strong>Sprint 8 (In Progress)</strong>
+                                <p>API integrations — Google Vision plant ID, OpenMeteo weather data, plant search connectivity.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Requirements Analysis & Design -->
+            <section class="capstone-section growth-block">
+                <h3 class="capstone-section-title">Requirements Analysis &amp; Design</h3>
+                <div class="capstone-block">
+                    <h4 class="sub-heading">Architecture</h4>
+                    <p>
+                        SipSip is built on <strong>MVVM + Clean Architecture</strong>, separating UI, domain logic,
+                        and data layers. This ensures testability, maintainability, and supports an offline-first
+                        approach using Room as the local database.
+                    </p>
+
+                    <div class="tech-stack-grid">
+                        <div class="tech-item"><span class="tech-label">Language</span><span class="tech-value">Kotlin</span></div>
+                        <div class="tech-item"><span class="tech-label">Framework</span><span class="tech-value">Android SDK (API 24–35)</span></div>
+                        <div class="tech-item"><span class="tech-label">UI</span><span class="tech-value">Jetpack Compose + Material Design 3</span></div>
+                        <div class="tech-item"><span class="tech-label">Architecture</span><span class="tech-value">MVVM + Clean Architecture</span></div>
+                        <div class="tech-item"><span class="tech-label">Local DB</span><span class="tech-value">Room (SQLite)</span></div>
+                        <div class="tech-item"><span class="tech-label">Plant ID</span><span class="tech-value">Google Vision API</span></div>
+                        <div class="tech-item"><span class="tech-label">Weather</span><span class="tech-value">OpenMeteo API</span></div>
+                        <div class="tech-item"><span class="tech-label">Version Control</span><span class="tech-value">GitHub</span></div>
+                    </div>
+
+                    <h4 class="sub-heading" style="margin-top: 20px;">Key Use Cases</h4>
+                    <ul class="req-list">
+                        <li><strong>UC1 — Create Plant Profile:</strong> User creates a plant entry with name, species, indoor/outdoor flag, optional photo, and watering schedule.</li>
+                        <li><strong>UC2 — Identify a Plant:</strong> User opens camera, captures a photo; the app calls Google Vision API and returns species info and a suggested care schedule.</li>
+                        <li><strong>UC3 — Complete a Shared Task:</strong> A household member marks a watering task complete; the update is reflected for all members sharing that plant.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Wireframes -->
+            <section class="capstone-section growth-block">
+                <h3 class="capstone-section-title">Wireframes &amp; Mockups</h3>
+                <div class="capstone-block">
+                    <p>
+                        UI/UX was prototyped in Figma before implementation, covering all core screens:
+                        dashboard, plant collections, plant profile creation, notifications, and the
+                        identification flow.
+                    </p>
+                    <a href="https://www.figma.com/proto/8MzKXhkVAriP0wv8Dnufkf/SipSip-Mockup?node-id=0-1&t=mWbe9mXuchdylO8m-1"
+                       target="_blank" class="capstone-cta">
+                        View Figma Prototype
+                    </a>
+                </div>
+            </section>
+
+            <!-- Status Reports -->
+            <section class="capstone-section growth-block">
+                <h3 class="capstone-section-title">Status Reports</h3>
+                <div class="capstone-block">
+
+                    <div class="status-report">
+                        <div class="status-header">
+                            <span class="status-badge green">● Green</span>
+                            <strong>Status Report I</strong>
+                            <span class="status-date">Feb 8, 2026</span>
+                        </div>
+                        <p>
+                            The team completed significant UI enhancements including a redesigned top action bar
+                            with integrated search, an updated dashboard filter system, improved Plant Collections
+                            layout with collapsible rooms, and an enhanced notification interface with timestamped
+                            sorting. The official GitHub repository was established and the core navigation flow
+                            and base screen templates were put in place.
+                        </p>
+                    </div>
+
+                    <div class="status-report">
+                        <div class="status-header">
+                            <span class="status-badge green">● Green</span>
+                            <strong>Status Report II</strong>
+                            <span class="status-date">Mar 13, 2026</span>
+                        </div>
+                        <p>
+                            The core UI enhancement package was completed and solid progress was made on the
+                            underlying app architecture. All major screens were implemented with a complete
+                            navigation structure and an initial data layer design. UI polish focused on layout
+                            spacing, icon consistency, and accessibility. API integrations (Google Vision,
+                            OpenMeteo, plant search) remain in progress — service interfaces exist but live
+                            connections are pending.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- System Implementation -->
+            <section class="capstone-section growth-block">
+                <h3 class="capstone-section-title">System Implementation</h3>
+                <div class="capstone-block">
+                    <p>
+                        SipSip is developed natively for Android using Kotlin and Jetpack Compose.
+                        The app follows a layered clean architecture with clear separation between the
+                        UI layer (Compose screens + ViewModels), domain layer (use cases), and data layer
+                        (Room database + API service interfaces).
+                    </p>
+                    <h4 class="sub-heading">Implemented</h4>
+                    <ul class="req-list">
+                        <li>Full navigation structure with all major screens scaffolded.</li>
+                        <li>Dashboard with filter bar — Today, Upcoming, and care-type filtering.</li>
+                        <li>Plant Collections with collapsible/expandable rooms and contextual menus.</li>
+                        <li>Notification system with All / Today / Completed filters and timestamp labels.</li>
+                        <li>Expandable search bar in the top action bar.</li>
+                        <li>Initial Room data layer design for local offline-first storage.</li>
+                    </ul>
+                    <h4 class="sub-heading">In Progress</h4>
+                    <ul class="req-list">
+                        <li>Google Vision API integration for camera-based plant identification.</li>
+                        <li>OpenMeteo API for weather-aware watering schedule adjustments.</li>
+                        <li>Plant search connectivity between API repository and UI.</li>
+                        <li>Full CRUD wiring between UI and Room database.</li>
+                    </ul>
+                    <a href="https://github.com/8bitnesfan/SipSip---Plant-Care-Mobile-App" target="_blank" class="capstone-cta" style="margin-top: 16px;">
+                        View on GitHub
+                    </a>
+                    <p class="muted" style="margin-top: 6px; font-size: 0.8rem;">(Contributors only)</p>
+                </div>
+            </section>
+
+            <!-- Documents -->
+            <section class="capstone-section growth-block">
+                <h3 class="capstone-section-title">Project Documents</h3>
+                <div class="capstone-block">
+                    <p>All official documentation produced throughout the SipSip capstone project.</p>
+
+                    <a href="assets/downloadable/SipSip_Capstone_Documents.zip" download class="capstone-cta download-all-btn">
+                        Download All Documents
+                    </a>
+
+                    <div class="docs-grid">
+                        <a href="assets/downloadable/SipSip_Project_Summary.pdf" download class="doc-item">
+                            <span class="doc-icon"><img src="assets/img/file-arrow-down-solid-full.svg" alt="PDF" /></span>
+                            <div>
+                                <strong>Project Summary</strong>
+                                <span>.pdf</span>
+                            </div>
+                        </a>
+                        <a href="assets/downloadable/SipSip_Project_Vision.pdf" download class="doc-item">
+                            <span class="doc-icon"><img src="assets/img/file-arrow-down-solid-full.svg" alt="PDF" /></span>
+                            <div>
+                                <strong>Project Vision</strong>
+                                <span>.pdf</span>
+                            </div>
+                        </a>
+                        <a href="assets/downloadable/SipSip_High_Level_Requirements.pdf" download class="doc-item">
+                            <span class="doc-icon"><img src="assets/img/file-arrow-down-solid-full.svg" alt="PDF" /></span>
+                            <div>
+                                <strong>High-Level Requirements</strong>
+                                <span>.pdf</span>
+                            </div>
+                        </a>
+                        <a href="assets/downloadable/SipSip_Project_Plan.pdf" download class="doc-item">
+                            <span class="doc-icon"><img src="assets/img/file-arrow-down-solid-full.svg" alt="PDF" /></span>
+                            <div>
+                                <strong>Project Plan</strong>
+                                <span>.pdf</span>
+                            </div>
+                        </a>
+                        <a href="assets/downloadable/SipSip_Requirements_Analysis_Design.pdf" download class="doc-item">
+                            <span class="doc-icon"><img src="assets/img/file-arrow-down-solid-full.svg" alt="PDF" /></span>
+                            <div>
+                                <strong>Requirements Analysis &amp; Design</strong>
+                                <span>.pdf</span>
+                            </div>
+                        </a>
+                        <a href="assets/downloadable/SipSip_Technology_Requirements.pdf" download class="doc-item">
+                            <span class="doc-icon"><img src="assets/img/file-arrow-down-solid-full.svg" alt="PDF" /></span>
+                            <div>
+                                <strong>Technology Requirements</strong>
+                                <span>.pdf</span>
+                            </div>
+                        </a>
+                        <a href="assets/downloadable/SipSip_Status_Report_I.pdf" download class="doc-item">
+                            <span class="doc-icon"><img src="assets/img/file-arrow-down-solid-full.svg" alt="PDF" /></span>
+                            <div>
+                                <strong>Status Report I</strong>
+                                <span>.pdf · Feb 2026</span>
+                            </div>
+                        </a>
+                        <a href="assets/downloadable/SipSip_Status_Report_II.pdf" download class="doc-item">
+                            <span class="doc-icon"><img src="assets/img/file-arrow-down-solid-full.svg" alt="PDF" /></span>
+                            <div>
+                                <strong>Status Report II</strong>
+                                <span>.pdf · Mar 2026</span>
+                            </div>
+                        </a>
+                        <a href="assets/downloadable/SipSip_User_Personas.pdf" download class="doc-item">
+                            <span class="doc-icon"><img src="assets/img/file-arrow-down-solid-full.svg" alt="PDF" /></span>
+                            <div>
+                                <strong>User Personas</strong>
+                                <span>.pdf</span>
+                            </div>
+                        </a>
+                        <a href="assets/downloadable/SipSip_User_Stories.pdf" download class="doc-item">
+                            <span class="doc-icon"><img src="assets/img/file-arrow-down-solid-full.svg" alt="PDF" /></span>
+                            <div>
+                                <strong>User Stories</strong>
+                                <span>.pdf</span>
+                            </div>
+                        </a>
+                        <a href="assets/downloadable/SipSip_Product_Backlog.pdf" download class="doc-item">
+                            <span class="doc-icon"><img src="assets/img/file-arrow-down-solid-full.svg" alt="PDF" /></span>
+                            <div>
+                                <strong>Product Backlog</strong>
+                                <span>.pdf</span>
+                            </div>
+                        </a>
+                        <a href="assets/downloadable/SipSip_Sprint_Backlog.pdf" download class="doc-item">
+                            <span class="doc-icon"><img src="assets/img/file-arrow-down-solid-full.svg" alt="PDF" /></span>
+                            <div>
+                                <strong>Sprint Backlog</strong>
+                                <span>.pdf</span>
+                            </div>
+                        </a>
+                        <a href="assets/downloadable/SipSip_Team_Charter.pdf" download class="doc-item">
+                            <span class="doc-icon"><img src="assets/img/file-arrow-down-solid-full.svg" alt="PDF" /></span>
+                            <div>
+                                <strong>Team Charter</strong>
+                                <span>.pdf</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </article>
+
+        <footer class="footer">
+            <p>&copy; <span id="year"></span> Jayden Lewis · All rights reserved.</p>
+        </footer>
+    </div>
+</main>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<div id="toast"></div>
+
+</body>
+</html>
