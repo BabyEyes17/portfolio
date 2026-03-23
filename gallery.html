@@ -18,20 +18,33 @@
 
 <!-- Copy Email-->
 <script>
-    function showToast(message) {
+    function showToast(message, anchorEl) {
+
         const toast = document.getElementById("toast");
         toast.textContent = message;
-        toast.classList.add("show");
 
-        setTimeout(() => {
-            toast.classList.remove("show");
-        }, 2000);
+        if (anchorEl) {
+
+            const rect = anchorEl.getBoundingClientRect();
+
+            toast.style.top    = (rect.bottom + 10) + "px";
+            toast.style.left   = rect.left + "px";
+            toast.style.bottom = "auto";
+            toast.style.right  = "auto";
+        }
+
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2000);
     }
 
-    function copyEmail() {
+    function copyEmail(event) {
+
+        const anchor = event ? event.currentTarget : null;
+        const email = "jaydentlewis@gmail.com";
+
         navigator.clipboard
-            .writeText("jaydentlewis@gmail.com")
-            .then(() => showToast("✔ Email copied!"))
+            .writeText(email)
+            .then(() => showToast("✔ Email copied!", anchor))
             .catch(err => console.error("Copy failed:", err));
     }
 </script>
@@ -52,7 +65,7 @@
                 <p class="role">Software Developer</p>
             </div>
 
-            <div class="sidebar-contact">
+            <div class="sidebar-contact" onclick="copyEmail(event)">
                 <div class="contact-row">
 
                     <div class="icon-circle"><img src="assets/img/envelope-regular-full.svg" alt="Email" /></div>
@@ -103,43 +116,69 @@
                 <li><a href="projects.html" class="nav-link">Projects</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
                 <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                <li><a href="capstone.html" class="nav-link">Capstone</a></li>
             </ul>
         </nav>
 
         <article class="page fade-in">
+
             <header>
-                <h2 class="page-title">Pixels &amp; Passion</h2>
+                <h2 class="page-title">IEEExtreme Programming Competition</h2>
             </header>
 
             <section class="gallery-grid">
 
-                <div class="gallery-item hover-glow" onclick="openImage('assets/img/react_app_employee_manager.png')">
+                <div class="gallery-item hover-glow clickable" onclick="openImage('assets/img/IEEExtreme-banner.jpg.webp')">
+                    <div class="gallery-thumb" style="background-image: url('assets/img/IEEExtreme-banner.jpg.webp');"></div>
+                    <p class="gallery-caption">IEEExtreme 18.0 (2024)</p>
+                </div>
+
+            </section>
+
+            <br>
+
+            <header>
+                <h2 class="page-title">Project Highlights</h2>
+            </header>
+
+            <section class="gallery-grid">
+
+                <div class="gallery-item hover-glow clickable" onclick="openImage('assets/img/react_app_employee_manager.png')">
                     <div class="gallery-thumb" style="background-image: url('assets/img/react_app_employee_manager.png');"></div>
                     <p class="gallery-caption">Employee Manager — React + JSX</p>
                 </div>
 
-                <div class="gallery-item hover-glow" onclick="openImage('assets/img/react_app_person_api.png')">
+                <div class="gallery-item hover-glow clickable" onclick="openImage('assets/img/react_app_person_api.png')">
                     <div class="gallery-thumb" style="background-image: url('assets/img/react_app_person_api.png');"></div>
                     <p class="gallery-caption">Random User Generator — React + Fetch API</p>
                 </div>
 
             </section>
 
-            <h3 class="section-heading" style="margin-top: 30px;">Video Highlights</h3>
+            <br>
+
+            <header>
+                <h2 class="page-title">Video Highlights</h2>
+            </header>
             <section class="video-grid lightbox-videos">
 
+                <div class="video-card" onclick="openVideo('zSHogr8Ffco')">
+                    <div class="video-thumb hover-glow clickable" style="background-image: url('https://img.youtube.com/vi/zSHogr8Ffco/hqdefault.jpg');"></div>
+                    <p class="video-caption">Live Web Chat Application</p>
+                </div>
+
                 <div class="video-card" onclick="openVideo('DLtJW-_VLyc')">
-                    <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/DLtJW-_VLyc/hqdefault.jpg');"></div>
+                    <div class="video-thumb hover-glow clickable" style="background-image: url('https://img.youtube.com/vi/DLtJW-_VLyc/hqdefault.jpg');"></div>
                     <p class="video-caption">Project Management Web App</p>
                 </div>
 
                 <div class="video-card" onclick="openVideo('B_PKsQdnmiM')">
-                    <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/B_PKsQdnmiM/hqdefault.jpg');"></div>
+                    <div class="video-thumb hover-glow clickable" style="background-image: url('https://img.youtube.com/vi/B_PKsQdnmiM/hqdefault.jpg');"></div>
                     <p class="video-caption">Inventory Management Service</p>
                 </div>
 
                 <div class="video-card" onclick="openVideo('rba6IcvYrKw')">
-                    <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/rba6IcvYrKw/hqdefault.jpg');"></div>
+                    <div class="video-thumb hover-glow clickable" style="background-image: url('https://img.youtube.com/vi/rba6IcvYrKw/hqdefault.jpg');"></div>
                     <p class="video-caption">Containerized Backend Microservices</p>
                 </div>
 
