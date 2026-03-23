@@ -18,20 +18,33 @@
 
 <!-- Copy Email-->
 <script>
-    function showToast(message) {
+    function showToast(message, anchorEl) {
+
         const toast = document.getElementById("toast");
         toast.textContent = message;
-        toast.classList.add("show");
 
-        setTimeout(() => {
-            toast.classList.remove("show");
-        }, 2000);
+        if (anchorEl) {
+
+            const rect = anchorEl.getBoundingClientRect();
+
+            toast.style.top    = (rect.bottom + 10) + "px";
+            toast.style.left   = rect.left + "px";
+            toast.style.bottom = "auto";
+            toast.style.right  = "auto";
+        }
+
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2000);
     }
 
-    function copyEmail() {
+    function copyEmail(event) {
+
+        const anchor = event ? event.currentTarget : null;
+        const email = "jaydentlewis@gmail.com";
+
         navigator.clipboard
-            .writeText("jaydentlewis@gmail.com")
-            .then(() => showToast("✔ Email copied!"))
+            .writeText(email)
+            .then(() => showToast("✔ Email copied!", anchor))
             .catch(err => console.error("Copy failed:", err));
     }
 </script>
@@ -53,7 +66,7 @@
             </div>
 
             <div class="sidebar-contact">
-                <div class="contact-row" onclick="copyEmail()">
+                <div class="contact-row" onclick="copyEmail(event)">
 
                     <div class="icon-circle"><img src="assets/img/envelope-regular-full.svg" alt="Email" /></div>
 
@@ -106,18 +119,19 @@
                 <li><a href="projects.html" class="nav-link">Projects</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
                 <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="capstone.html" class="nav-link">Capstone</a></li>
             </ul>
         </nav>
 
         <!-- About -->
         <article class="page fade-in">
             <header>
-                <h2 class="page-title">Digital Identity</h2>
+                <h2 class="page-title">About Me</h2>
             </header>
 
             <section class="about-text">
                 <p>
-                    I’m <strong>Jayden Lewis</strong>, a software developer based in Toronto, Canada.
+                    I’m Jayden Lewis, a software developer based in Toronto, Canada.
                     I enjoy building full-stack applications, designing clean user experiences,
                     and solving practical problems with code.
                 </p>
@@ -144,7 +158,7 @@
                     </li>
                     <li class="highlight-card">
                         <h4 class="highlight-number">+10</h4>
-                        <p class="highlight-label">PERSONAL PROJECTS</p>
+                        <p class="highlight-label">PROJECTS COMPLETED</p>
                     </li>
                     <li class="highlight-card">
                         <h4 class="highlight-number">+6</h4>
@@ -155,13 +169,33 @@
 
             <section class="about-growth">
 
-                <h3 class="section-heading">Growth & Goals</h3>
+                <h3 class="section-heading">Philosophy &amp; Career Goal</h3>
+
+                <div class="growth-block">
+                    <p style="font-size:0.96rem; line-height:1.75; margin:0 0 0.9rem;">
+                        I believe that software is only as good as the experience it creates. My work is driven by a
+                        simple standard: if it isn't polished, it isn't finished. From the structure of a database schema
+                        to the feel of a UI interaction, every layer matters. I've always been drawn to the full picture,
+                        not just making something that runs, but making something that works well, end to end.
+                        That standard came from learning by shipping, breaking things, debugging them, and rebuilding
+                        them better each time.
+                    </p>
+                    <p style="font-size:0.96rem; line-height:1.75; margin:0;">
+                        My goal is to grow into a software developer who builds systems that are both technically sound
+                        and genuinely useful. It's the kind of work that holds up under pressure and reflects real craftsmanship.
+                        I'm currently deepening my expertise in backend architecture, microservices, and full-stack
+                        development, with an eye toward roles where I can take ownership of complex systems and keep
+                        raising the bar on what I build.
+                    </p>
+                </div>
+
+                <h3 class="section-heading">Where I'm Headed</h3>
 
                 <div class="growth-block">
                     <h4>What I'm Working On</h4>
                     <ul>
-                        <li>Building a full-stack microservice architecture using <strong>Spring Boot</strong>, <strong>React</strong>, and <strong>PostgreSQL</strong>.</li>
-                        <li>Designing scalable backend modules with clean controller–service–repository structures.</li>
+                        <li>Building Taskit, an iOS to-do app designed to help students and working individuals manage tasks simply and efficiently.</li>
+                        <li>Leading SipSip, an Android plant care app built with Kotlin and Jetpack Compose as my capstone project.</li>
                         <li>Expanding my personal portfolio with real-world inspired applications.</li>
                     </ul>
                 </div>
@@ -169,27 +203,25 @@
                 <div class="growth-block">
                     <h4>What I'm Learning</h4>
                     <ul>
-                        <li>Advanced debugging and performance optimization in <strong>Java</strong>, <strong>C#</strong>, and <strong>Python</strong>.</li>
-                        <li>Deployment workflows using <strong>Docker</strong>, <strong>GitHub Actions</strong>, and cloud environments.</li>
-                        <li>Competitive programming skills from <strong>IEEE Xtreme</strong> (data structures, graphs, DP, search algorithms).</li>
+                        <li>iOS development with Swift and SwiftUI — building native apps and learning Apple's design patterns.</li>
+                        <li>Machine learning fundamentals, exploring model training and experimenting with custom implementations.</li>
+                        <li>JavaScript ecosystem libraries including GraphQL and Angular to broaden my frontend capabilities.</li>
+                        <li>Cybersecurity basics — understanding common vulnerabilities, secure coding practices, and how to think defensively as a developer.</li>
                     </ul>
                 </div>
 
-                <div class="growth-block testimonial">
-                    <h4>Professor Referral</h4>
+                <div class="growth-block">
+                    <h4>Availability</h4>
 
-                    <p class="testimonial-text">
-                        My professor, <strong>Andrew Rudder</strong>, has consistently recognized my strong work ethic,
-                        attention to detail, and ability to break down complex problems. He has highlighted my focus,
-                        technical discipline, and persistence when troubleshooting complex issues in our coursework.
+                    <p>
+                        I'm currently open to internship opportunities and entry-level roles in software development.
+                        Whether it's backend, mobile, or full-stack, I'm eager to contribute to a real team, keep growing,
+                        and bring the same focus and work ethic I put into my projects.
                     </p>
 
                     <p class="testimonial-author">
-                        — <strong>Andrew Rudder</strong>, Professor, George Brown College
-                        <br>
-                        <a href="https://www.linkedin.com/in/andrew-rudder-b68a2673/" target="_blank" class="testimonial-link">
-                            View LinkedIn Profile
-                        </a>
+                        <img src="assets/img/location-dot-solid-full.svg" alt="Location" style="width:14px; height:14px; vertical-align:middle; margin-right:4px;" /> Based in Toronto, Canada &nbsp;·&nbsp; Open to remote &nbsp;·&nbsp;
+                        <a href="contact.html" class="testimonial-link">Get in touch</a>
                     </p>
                 </div>
 
