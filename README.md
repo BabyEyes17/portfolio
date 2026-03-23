@@ -12,3 +12,4 @@
 | **Projects** | Cards for personal and academic projects |
 | **Contact** | Phone and email contact details |
 | **Gallery** | App screenshots and YouTube video highlights |
+| **Capstone** | Final-year capstone project showcase |
