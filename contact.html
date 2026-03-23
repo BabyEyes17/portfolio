@@ -18,22 +18,75 @@
 
 <!-- Copy Email-->
 <script>
-    function showToast(message) {
+    function showToast(message, anchorEl) {
+
         const toast = document.getElementById("toast");
         toast.textContent = message;
-        toast.classList.add("show");
 
-        setTimeout(() => {
-            toast.classList.remove("show");
-        }, 2000);
+        if (anchorEl) {
+
+            const rect = anchorEl.getBoundingClientRect();
+
+            toast.style.top    = (rect.bottom + 10) + "px";
+            toast.style.left   = rect.left + "px";
+            toast.style.bottom = "auto";
+            toast.style.right  = "auto";
+        }
+
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2000);
     }
 
-    function copyEmail() {
+    function copyEmail(event) {
+
+        const anchor = event ? event.currentTarget : null;
+        const email = "jaydentlewis@gmail.com";
+
         navigator.clipboard
-            .writeText("jaydentlewis@gmail.com")
-            .then(() => showToast("✔ Email copied!"))
+            .writeText(email)
+            .then(() => showToast("✔ Email copied!", anchor))
             .catch(err => console.error("Copy failed:", err));
     }
+
+    function copyPhoneNumber(event) {
+
+        const anchor = event ? event.currentTarget : null;
+        const email = "+1 (647) 395 - 4395";
+
+        navigator.clipboard
+            .writeText(email)
+            .then(() => showToast("✔ Phone Number copied!", anchor))
+            .catch(err => console.error("Copy failed:", err));
+    }
+
+    async function sendMessage() {
+        const name    = document.getElementById("form-name").value.trim();
+        const email   = document.getElementById("form-email").value.trim();
+        const subject = document.getElementById("form-subject").value.trim();
+        const message = document.getElementById("form-message").value.trim();
+
+        if (!name || !email || !message) {
+            showToast("⚠ Please fill in all fields.");
+            return;
+        }
+
+        const res = await fetch("https://formspree.io/f/xzdjlrkj", {
+            method: "POST",
+            headers: { "Accept": "application/json" },
+            body: JSON.stringify({ name, email, subject, message })
+        });
+
+        if (res.ok) {
+            showToast("✔ Message sent!");
+            document.getElementById("form-name").value = "";
+            document.getElementById("form-email").value = "";
+            document.getElementById("form-subject").value = "";
+            document.getElementById("form-message").value = "";
+        } else {
+            showToast("✖ Something went wrong. Try emailing directly.");
+        }
+    }
+
 </script>
 
 <body>
@@ -51,7 +104,7 @@
                 <p class="role">Software Developer</p>
             </div>
 
-            <div class="sidebar-contact">
+            <div class="sidebar-contact" onclick="copyEmail(event)">
                 <div class="contact-row">
 
                     <div class="icon-circle"><img src="assets/img/envelope-regular-full.svg" alt="Email" /></div>
@@ -105,6 +158,7 @@
                 <li><a href="projects.html" class="nav-link">Projects</a></li>
                 <li><a href="contact.html" class="nav-link active">Contact</a></li>
                 <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="capstone.html" class="nav-link">Capstone</a></li>
             </ul>
         </nav>
 
@@ -112,10 +166,18 @@
         <article class="page fade-in">
 
             <header>
-                <h2 class="page-title">Let’s Connect</h2>
+                <h2 class="page-title">Let's Connect</h2>
             </header>
 
+            <p class="about-text" style="margin: 12px 0 20px; font-size: 0.96rem; line-height: 1.7;">
+                I'm currently open to <strong>internship opportunities</strong>, co-op roles, and collaborations.
+                Whether you have a project in mind or just want to connect — feel free to reach out.
+                I typically respond within 24 hours.
+            </p>
+
             <section class="contact-layout">
+
+                <!-- Left: Contact Details -->
                 <div class="contact-info-block">
 
                     <h3 class="section-heading">Contact Details</h3>
@@ -123,24 +185,52 @@
 
                         <li>
                             <span class="contact-icon"><img src="assets/img/mobile-screen-solid-full.svg" alt="Mobile Phone" /></span>
-                            <div>
-                                <p class="contact-label">Mobile</p>
+                            <div class="clickable" onclick="copyPhoneNumber(event)" title="Click to copy">
+                                <p class="contact-label">Mobile <span style="font-size:0.7rem; color:var(--accent); margin-left:4px;"></span></p>
                                 <p class="contact-value">+1 (647) 395-4395</p>
                             </div>
                         </li>
 
                         <li>
                             <span class="contact-icon"><img src="assets/img/envelope-regular-full.svg" alt="Email" /></span>
+                            <div class="clickable" onclick="copyEmail(event)" title="Click to copy">
+                                <p class="contact-label">Email <span style="font-size:0.7rem; color:var(--accent); margin-left:4px;"></span></p>
+                                <p class="contact-value">jaydentlewis@gmail.com</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <span class="contact-icon"><img src="assets/img/location-dot-solid-full.svg" alt="Location" /></span>
                             <div>
-                                <p class="contact-label">Email</p>
-                                <a href="mailto:jaydentlewis@gmail.com" class="contact-value">
-                                    jaydentlewis@gmail.com
-                                </a>
+                                <p class="contact-label">Location</p>
+                                <p class="contact-value">Toronto, Canada · Open to Remote</p>
                             </div>
                         </li>
 
                     </ul>
+
                 </div>
+
+                <!-- Right: Contact Form -->
+                <div class="contact-form-block">
+                    <h3 class="section-heading">Send a Message</h3>
+
+                    <div style="margin-top:10px;">
+
+                        <div class="input-row">
+                            <input type="text" id="form-name" class="form-input" placeholder="Your Name" />
+                            <input type="email" id="form-email" class="form-input" placeholder="Your Email" />
+                        </div>
+
+                        <input type="text" id="form-subject" class="form-input" placeholder="Subject" style="margin-bottom:10px;" />
+
+                        <textarea id="form-message" class="form-input" rows="4" placeholder="Your message..."></textarea>
+
+                        <button class="btn-download" onclick="sendMessage()" style="margin-top:10px;">Send Message</button>
+
+                    </div>
+                </div>
+
             </section>
         </article>
 
