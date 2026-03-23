@@ -18,22 +18,44 @@
 
 <!-- Copy Email-->
 <script>
-    function showToast(message) {
+    function showToast(message, anchorEl) {
+
         const toast = document.getElementById("toast");
         toast.textContent = message;
-        toast.classList.add("show");
 
-        setTimeout(() => {
-            toast.classList.remove("show");
-        }, 2000);
+        if (anchorEl) {
+
+            const rect = anchorEl.getBoundingClientRect();
+
+            toast.style.top    = (rect.bottom + 10) + "px";
+            toast.style.left   = rect.left + "px";
+            toast.style.bottom = "auto";
+            toast.style.right  = "auto";
+        }
+
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2000);
     }
 
-    function copyEmail() {
+    function copyEmail(event) {
+
+        const anchor = event ? event.currentTarget : null;
+        const email = "jaydentlewis@gmail.com";
+
         navigator.clipboard
-            .writeText("jaydentlewis@gmail.com")
-            .then(() => showToast("✔ Email copied!"))
+            .writeText(email)
+            .then(() => showToast("✔ Email copied!", anchor))
             .catch(err => console.error("Copy failed:", err));
     }
+
+    function toggleCoverLetter() {
+        const body = document.getElementById("cover-letter-body");
+        const toggle = document.getElementById("cover-letter-toggle");
+        const isHidden = body.style.display === "none";
+        body.style.display = isHidden ? "block" : "none";
+        toggle.textContent = isHidden ? "Hide ▴" : "Show ▾";
+    }
+
 </script>
 
 <body>
@@ -52,7 +74,7 @@
                 <p class="role">Software Developer</p>
             </div>
 
-            <div class="sidebar-contact">
+            <div class="sidebar-contact" onclick="copyEmail(event)">
                 <div class="contact-row">
 
                     <div class="icon-circle"><img src="assets/img/envelope-regular-full.svg" alt="Email" /></div>
@@ -104,12 +126,19 @@
                 <li><a href="projects.html" class="nav-link">Projects</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
                 <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="capstone.html" class="nav-link">Capstone</a></li>
             </ul>
         </nav>
 
         <article class="page fade-in">
             <header>
-                <h2 class="page-title">Career Snapshot</h2>
+
+                <h2 class="page-title">My Experience</h2>
+
+                <a href="assets/downloadable/Jayden%20Lewis%20-%20General%20Resume.pdf" download="Jayden_Lewis_General_Resume.pdf" class="btn-download">
+                    Download Resume
+                </a>
+
             </header>
 
             <!-- Experience -->
@@ -120,36 +149,36 @@
 
                 <ol class="timeline-list">
 
+                    <!-- SIPSIP -->
+                    <li class="timeline-item">
+                        <h4 class="timeline-title">Team Lead & Android Developer — SipSip Capstone Project</h4>
+                        <span class="timeline-date">2025 – Present</span>
+                        <p class="timeline-text">
+                            Leading full-cycle development of an Android plant care app built with Kotlin and Jetpack Compose.
+                            Architected the Room database schema supporting plant profiles, watering schedules, and household sharing.
+                            Coordinated team workflow via GitLab — branching conventions, code reviews, and API integration.
+                        </p>
+                    </li>
+
                     <!-- BACKEND DEVELOPER -->
                     <li class="timeline-item">
                         <h4 class="timeline-title">Backend Developer — Independent & Team Projects</h4>
                         <span class="timeline-date">2023 – Present</span>
                         <p class="timeline-text">
-                            Designed and built RESTful APIs using Spring Boot and ASP.NET Core with strong focus on clean architecture, validation, and exception handling.
-                            Developed relational database schemas in PostgreSQL and MySQL, including indexing, joins, and stored procedures.
-                            Built containerized microservices with Docker and integrated Redis caching for rapid lookup speeds.
-                            Created CI workflows using GitHub Actions and automated backup utilities in Bash and PowerShell.
+                            Built RESTful APIs in Spring Boot and ASP.NET Core with a focus on clean architecture, validation, and exception handling.
+                            Designed relational schemas in PostgreSQL, MySQL, and SQL Server across multiple projects.
+                            Established GitHub Actions CI/CD pipelines and automated environment setup with Bash and PowerShell scripts.
                         </p>
                     </li>
 
-                    <!-- IEEEXTREME -->
+                    <!-- MICROSERVICES -->
                     <li class="timeline-item">
-                        <h4 class="timeline-title">IEEEXtreme Global Competitive Programming</h4>
-                        <span class="timeline-date">2024 & 2025</span>
+                        <h4 class="timeline-title">Team Lead — Student Wellness Hub Microservices</h4>
+                        <span class="timeline-date">2024 – 2025</span>
                         <p class="timeline-text">
-                            Participated in IEEEXtreme 18.0 and 19.0, solving advanced algorithmic problems under 24-hour constraints using Java and Python.
-                            Strengthened debugging accuracy, computational efficiency, and problem-solving using data structures, graph theory, dynamic programming, and search algorithms.
-                        </p>
-                    </li>
-
-                    <!-- TEAM LEAD -->
-                    <li class="timeline-item">
-                        <h4 class="timeline-title">Team Lead — Software Microservice Architecture</h4>
-                        <span class="timeline-date">2024 – Present</span>
-                        <p class="timeline-text">
-                            Led the design and implementation of microservice-based architecture using Spring Boot.
-                            Coordinated PostgreSQL schema design across modules and ensured consistent controller/service/repository patterns.
-                            Guided teammates through API development, debugging, and deployment workflows using Docker Compose, GitLab, and Postman.
+                            Led the design and implementation of a containerised Spring Boot microservice backend with Docker Compose and Redis caching.
+                            Enforced consistent controller–service–repository patterns and PostgreSQL schema design across the team.
+                            Guided teammates through API development, debugging, and deployment workflows using GitLab and Postman.
                         </p>
                     </li>
 
@@ -174,6 +203,51 @@
                 </ol>
             </section>
 
+            <!-- Academic Credentials -->
+            <section class="timeline">
+                <div class="timeline-header">
+                    <h3 class="section-heading">Academic Credentials</h3>
+                </div>
+                <ol class="timeline-list">
+                    <li class="timeline-item">
+                        <h4 class="timeline-title">Advanced Diploma — Computer Programming &amp; Analysis</h4>
+                        <span class="timeline-date">George Brown College · Expected 2026</span>
+                        <p class="timeline-text">
+                            Three-year advanced diploma covering software engineering, full-stack web development,
+                            databases, data structures, algorithms, object-oriented design, and enterprise application architecture.
+                        </p>
+                    </li>
+                </ol>
+            </section>
+
+            <!-- Awards & Recognition -->
+            <section class="timeline">
+                <div class="timeline-header">
+                    <h3 class="section-heading">Awards &amp; Recognition</h3>
+                </div>
+                <ol class="timeline-list">
+                    <li class="timeline-item">
+                        <h4 class="timeline-title">IEEEXtreme 18.0 — Global Competitive Programming</h4>
+                        <span class="timeline-date">IEEE · 2024</span>
+                        <p class="timeline-text">
+                            Competed in IEEEXtreme 18.0, a prestigious 24-hour global programming competition
+                            hosted by the Institute of Electrical and Electronics Engineers. Solved advanced
+                            algorithmic challenges in Java and Python under timed conditions, ranking among
+                            participants worldwide.
+                        </p>
+                    </li>
+                    <li class="timeline-item">
+                        <h4 class="timeline-title">IEEEXtreme 19.0 — Global Competitive Programming</h4>
+                        <span class="timeline-date">IEEE · 2025</span>
+                        <p class="timeline-text">
+                            Returned for IEEEXtreme 19.0, applying strengthened skills in dynamic programming,
+                            graph algorithms, and search strategies. Demonstrated consistency and growth through
+                            back-to-back participation in one of the most competitive student programming events globally.
+                        </p>
+                    </li>
+                </ol>
+            </section>
+
             <!-- Skills -->
             <section class="skills">
                 <h3 class="section-heading">Skills</h3>
@@ -185,6 +259,8 @@
                     <li class="chip">C#</li>
                     <li class="chip">JavaScript</li>
                     <li class="chip">SQL</li>
+                    <li class="chip">Kotlin</li>
+                    <li class="chip">Swift</li>
 
                     <!-- FRAMEWORKS -->
                     <li class="chip">Spring Boot</li>
@@ -211,6 +287,63 @@
                     <li class="chip">Debugging & Logging</li>
                 </ul>
             </section>
+
+            <!-- Cover Letter -->
+            <section class="timeline" style="margin-top: 24px;">
+                <div class="timeline-header cover-letter-header" onclick="toggleCoverLetter()">
+                    <h3 class="section-heading" style="margin:0;">Cover Letter</h3>
+                    <span id="cover-letter-toggle" class="cover-letter-toggle">Show ▾</span>
+                </div>
+
+                <div id="cover-letter-body" class="cover-letter-body">
+                    <div class="cover-letter-content">
+
+                        <p><strong>Jayden Lewis</strong></p>
+                        <p class="cover-letter-meta">Toronto, Canada &nbsp;·&nbsp; jaydentlewis@gmail.com &nbsp;·&nbsp; +1 (647) 395-4395</p>
+                        <p class="cover-letter-date" id="cover-letter-date"></p>
+
+                        <p>Dear Hiring Manager,</p>
+
+                        <p>
+                            Working with backend systems, relational databases, and API design throughout my projects at
+                            George Brown College has motivated me to apply for a Junior Backend Developer position at
+                            your company. I've built a genuine appreciation for well-architected backend
+                            systems — ones that are clean, reliable, and built to scale — and I'm eager to bring that
+                            mindset to a professional team.
+                        </p>
+
+                        <p>
+                            I approach backend development with patience and structure, keeping both the small details
+                            and the bigger system picture in mind at the same time. I've designed and built RESTful APIs
+                            using <strong>Spring Boot</strong> and <strong>ASP.NET Core</strong>, developed relational
+                            database schemas in <strong>PostgreSQL</strong> and <strong>MySQL</strong>, and containerized
+                            services using <strong>Docker</strong>. I've written complex SQL scripts, integrated Redis
+                            caching, and set up CI workflows with GitHub Actions — and I document my work thoroughly
+                            so that teammates can always follow what I've built and why.
+                        </p>
+
+                        <p>
+                            I'm someone who values consistency and reliability, and those traits carry directly into
+                            how I write and maintain code. I take direction well, collaborate clearly, and take the
+                            time to understand both the technical and user impact of the systems I work on. I've led
+                            backend architecture decisions on team projects and know what it takes to coordinate
+                            across a codebase while keeping quality high.
+                        </p>
+
+                        <p>
+                            I believe a position at your company would offer the structure,
+                            responsibility, and mentorship to help me grow into a stronger developer while contributing
+                            meaningfully from day one. I'd appreciate the opportunity to bring my work ethic,
+                            technical discipline, and drive for clean, dependable software to your team.
+                        </p>
+
+                        <p>Sincerely,</p>
+                        <p><strong>Jayden Lewis</strong></p>
+
+                    </div>
+                </div>
+            </section>
+
         </article>
 
         <footer class="footer">
@@ -221,6 +354,12 @@
 
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById("cover-letter-date").textContent = new Date().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    });
 </script>
 
 <div id="toast"></div>
